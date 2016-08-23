@@ -70,6 +70,12 @@ function init() {
       startPolling();
     }
   });
+
+  document.getElementById('buzzBtn').addEventListener('click', onBuzzClick, false);
+}
+
+function onBuzzClick() {
+  Buzz(650);
 }
 
 function startPolling() {
@@ -200,7 +206,8 @@ function updateMessage(messageData) {
       }).indexOf(messageData.sender);
       // SlotsAnimationManager slots include 'self', so offset by 1
       SlotsAnimationManager.playMessage(messageData.value, senderSlotIndex+1);
-      Buzz(650);
+      //Buzz(650);
+      document.getElementById('buzzBtn').click();
     }
   }
 }
@@ -267,6 +274,7 @@ function toggleMyStatus() {
   var newStatus = {
     value: oldStatus.value === '1' ? '0' : '1'
   };
+
   // optimistically update locally, we'll roll it back if the request fails
   updateSlot(newStatus, 0, [appState.mySlot]);
 

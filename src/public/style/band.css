@@ -27,6 +27,14 @@ section {
   right: 0;
 }
 
+#buzzBtn {
+  margin: 0 10px 0 20px;
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  top: -50px;
+}
+
 #band {
   position: absolute;
   top: 0;
@@ -37,6 +45,7 @@ section {
   -webkit-transform: none;
   transform: none;
   transform-origin: top center;
+  margin-top: 50px;
 }
 
 .slot {
