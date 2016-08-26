@@ -38,7 +38,14 @@ function jsonRequest(url, requestConfig) {
   url = config.apiOrigin + '/' + url;
 
   var promise = new Promise(function(resolve, reject) {
+    if (requestConfig === undefined){
+      requestConfig = {};
+    }
+
+    requestConfig.credentials = 'same-origin';
+
     var fetched = window.fetch(url, requestConfig);
+
     fetched.catch(function(err) {
         // network or permissions error?
         console.warn('jsonRequest errback, request for %s produced error', url, err);

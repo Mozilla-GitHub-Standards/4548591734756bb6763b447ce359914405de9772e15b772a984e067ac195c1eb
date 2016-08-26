@@ -65,7 +65,7 @@
     var msgNode = document.getElementById('message');
     msgNode.textContent = '';
     if (id) {
-      window.fetch('/user/' + id + '/status').then(function(resp) {
+      window.fetch('/user/' + id + '/status', { credentials: 'same-origin' }).then(function(resp) {
         console.log('respond: ', resp);
         if (resp.status === 200) {
           window.location.href = location.origin + '/band.html?id=' + id;
